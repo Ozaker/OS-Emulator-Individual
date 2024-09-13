@@ -12,6 +12,8 @@ string ASCII =
     .append(" | |____ ____) | |__| | |    | |____ ____) |  | |   \n")
     .append("  \\_____|_____/ \\____/|_|    |______|_____/   |_|   ");
 
+string header = ASCII + '\n' + "\033[32mHello, Welcome to CSOPESY commandline!\033[0m" + '\n' + "\033[93mType 'exit' to quit, 'clear' to clear the screen\033[0m" + '\n';
+
 vector<string> validCommands = vector<string>({
     "initialize",
     "screen",
@@ -43,6 +45,7 @@ bool executeCommand(string input) {
     } 
     else if (input == "clear") {
         system("CLS");
+        cout << header;
         return false;
     }
     else {
@@ -53,7 +56,7 @@ bool executeCommand(string input) {
 }
 
 int main() {
-    cout << ASCII + '\n' + "\033[32mHello, Welcome to CSOPESY commandline!\033[0m" + '\n' + "\033[93mType 'exit' to quit, 'clear' to clear the screen\033[0m" + '\n';
+    cout << header;
 
     bool stop = false;
     while (!stop) {
