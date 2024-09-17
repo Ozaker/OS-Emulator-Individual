@@ -1,16 +1,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "config.h"
 
-using namespace std;
+using std::string, std::vector, std::cout, std::cin;
 
 string ASCII =
-    string("   _____  _____  ____  _____  ______  _______     __\n")
-    .append("  / ____|/ ____|/ __ \\|  __ \\|  ____|/ ____\\ \\   / /\n")
-    .append(" | |    | (___ | |  | | |__) | |__  | (___  \\ \\_/ / \n")
-    .append(" | |     \\___ \\| |  | |  ___/|  __|  \\___ \\  \\   /  \n")
-    .append(" | |____ ____) | |__| | |    | |____ ____) |  | |   \n")
-    .append("  \\_____|_____/ \\____/|_|    |______|_____/   |_|   ");
+    "   _____  _____  ____  _____  ______  _______     __\n"
+    "  / ____|/ ____|/ __ \\|  __ \\|  ____|/ ____\\ \\   / /\n"
+    " | |    | (___ | |  | | |__) | |__  | (___  \\ \\_/ / \n"
+    " | |     \\___ \\| |  | |  ___/|  __|  \\___ \\  \\   /  \n"
+    " | |____ ____) | |__| | |    | |____ ____) |  | |   \n"
+    "  \\_____|_____/ \\____/|_|    |______|_____/   |_|   ";
 
 string header = ASCII + '\n' + "\033[32mHello, Welcome to CSOPESY commandline!\033[0m" + '\n' + "\033[93mType 'exit' to quit, 'clear' to clear the screen\033[0m" + '\n';
 
@@ -27,7 +28,6 @@ vector<string> validCommands = vector<string>({
 string takeUserInput() {
     string input;
     while (true) {
-        //cout << "~!: ";
         cout << "Enter a command: ";
         cin >> input;
 
@@ -55,7 +55,7 @@ bool executeCommand(string input) {
     return false;
 }
 
-int main() {
+void run() {
     cout << header;
 
     bool stop = false;
@@ -63,6 +63,10 @@ int main() {
         string input = takeUserInput();
         stop = executeCommand(input);
     }
+}
 
-    return 0;
+int main() {
+    Config configs;
+
+    run();    
 }
