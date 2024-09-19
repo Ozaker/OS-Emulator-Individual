@@ -1,12 +1,12 @@
 #include "config.h"
 
-using std::string, std::stoi, std::getline;
+using std::cout, std::stoi, std::getline, std::ifstream;
 
-Config::Config() {
+void Config::loadFromFile(string filename) {
 	string temp;
 	
 	// open config file
-	std::ifstream file("config.txt");
+	ifstream file(filename);
 	
 	this->numCpu = stoi(getSettingValue(file)); 
 	this->scheduler = getSettingValue(file).substr(1, 2);
@@ -19,7 +19,20 @@ Config::Config() {
 	file.close();
 }
 
-string Config::getSettingValue(std::ifstream& file) {
+
+void Config::log() {
+	cout
+		<< "num-cpu " << this->numCpu << '\n'
+		<< "scheduler " << this->scheduler << '\n'
+		<< "quantum-cycles " << this->quantumCycles << '\n'
+		<< "batch-process-freq " << this->batchProcessFreq << '\n'
+		<< "min-ins " << this->minIns << '\n'
+		<< "max-ins " << this->maxIns << '\n'
+		<< "delay-per-exec " << this->delayPerExec << '\n';
+}
+
+
+string Config::getSettingValue(ifstream& file) {
 	string temp;
 	getline(file, temp);
 
@@ -29,15 +42,4 @@ string Config::getSettingValue(std::ifstream& file) {
 	}
 
 	return temp.substr(i + 1, temp.size() - i - 1);
-}
-
-void Config::log() {
-	std::cout
-		<< "num-cpu " << this->numCpu << '\n'
-		<< "scheduler " << this->scheduler << '\n'
-		<< "quantum-cycles " << this->quantumCycles << '\n'
-		<< "batch-process-freq " << this->batchProcessFreq << '\n'
-		<< "min-ins " << this->minIns << '\n'
-		<< "max-ins " << this->maxIns << '\n'
-		<< "delay-per-exec " << this->delayPerExec << '\n';
 }
