@@ -19,7 +19,13 @@ void Console::show() {
 }
 
 
-void Console::print(string str) {
+void Console::print(const string str) {
 	cout << str;
 	this->content.append(str);
+}
+
+
+void Console::clear() {
+	this->content = this->header;
+	show();
 }

@@ -15,7 +15,7 @@ string Utils::getCurDateTimeAsString() {
 
 vector<string> Utils::parseCommand(const string input) {
 	// remove trailing, leading, extra spaces from input
-	string inputNoExtraSpaces = regex_replace(input, regex("^ +| +$|( ) +"), "$1");
+	string inputNoExtraSpaces = std::regex_replace(input, std::regex("^ +| +$|( ) +"), "$1");
 
 	const unsigned int maxInputArgs = 3;
 	vector<string> temp;

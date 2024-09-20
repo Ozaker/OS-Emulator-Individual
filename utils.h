@@ -4,7 +4,7 @@
 #include <regex>
 #include <vector>
 
-using std::string, std::vector, std::regex_replace, std::regex;
+using std::string, std::vector;
 
 namespace Utils {
 	string getCurDateTimeAsString();
