@@ -131,9 +131,11 @@
   <ItemGroup>
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Config.cpp" />
-    <ClCompile Include="ProcessManager.cpp" />
-    <ClCompile Include="ProcessManager.h" />
+    <ClCompile Include="ConsoleManager.cpp" />
+    <ClCompile Include="ConsoleManager.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainConsole.cpp" />
+    <ClCompile Include="ProcessConsole.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +144,9 @@
   <ItemGroup>
     <ClInclude Include="Config.h" />
     <ClInclude Include="Console.h" />
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="MainConsole.h" />
+    <ClInclude Include="ProcessConsole.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

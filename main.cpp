@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "ProcessManager.h"
+#include "Config.h"
+#include "ConsoleManager.h"
 
 
 int main() {
-    //run();    
-    ProcessManager pm;
+    Config config;
+    ConsoleManager pm(&config);
     pm.start();
 }

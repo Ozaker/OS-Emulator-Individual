@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
-#include <iostream>
 #include <fstream>
+
 
 using std::string, std::ifstream;
 
@@ -14,8 +14,6 @@ public:
 	int minIns;
 	int maxIns;
 	int delayPerExec;
-
-	//Config();
 
 	void loadFromFile(string filename); 
 	void log(); // for debugging - prints all attributes

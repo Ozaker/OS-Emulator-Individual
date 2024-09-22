@@ -1,13 +1,15 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <sstream>
 #include <vector>
+
 
 using std::string, std::cout, std::cin, std::vector;
 
+class ConsoleManager; // forward declaration to avoid circular dependency
+
 class Console {
-private:
+protected:
 	const string creationDateTimeAsString;
 	const string name;
 	const string header;
@@ -16,9 +18,9 @@ private:
 
 public:
 	Console(const string name, const string header, const string prompt);
-		
-	void show(); // clears screen and displays the screen state from when the screen was last attached
-	void takeInput(string& buffer); // takes user input and stores in buffer then updates content accordingly
-	void print(const string str); // prints to stdout while updating content
-	void clear(); // resets content to header then calls show()
+	void onAttach();
+	void takeInput(string& buffer);		// takes user input and stores it in buffer then updates content accordingly
+	void print(const string str);		// prints to stdout while updating content
+	virtual void executeCommand(const vector<string> command, ConsoleManager* manager) = 0;
+	void warnInvalidCommand(string command);
 };

@@ -1,4 +1,6 @@
+#include <iostream>
 #include "config.h"
+
 
 using std::cout, std::stoi, std::getline, std::ifstream;
 

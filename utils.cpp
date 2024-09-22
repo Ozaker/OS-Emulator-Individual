@@ -1,4 +1,7 @@
+#include <regex>
+#include <ctime>
 #include "utils.h"
+#include "globals.h"
 
 
 string Utils::getCurDateTimeAsString() {
@@ -17,9 +20,8 @@ vector<string> Utils::parseCommand(const string input) {
 	// remove trailing, leading, extra spaces from input
 	string inputNoExtraSpaces = std::regex_replace(input, std::regex("^ +| +$|( ) +"), "$1");
 
-	const unsigned int maxInputArgs = 3;
 	vector<string> temp;
-	temp.reserve(maxInputArgs);
+	temp.reserve(MAX_COMMAND_LENGTH);
 
 	// split input by space 
 	int idxPrevSpace = -1, i = 0;
@@ -30,7 +32,7 @@ vector<string> Utils::parseCommand(const string input) {
 		}
 	}
 
-	while (temp.size() < maxInputArgs) {
+	while (temp.size() < MAX_COMMAND_LENGTH) {
 		temp.push_back("");
 	}
 	return temp;

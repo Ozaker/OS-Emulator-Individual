@@ -1,5 +1,6 @@
-#include "Console.h"
 #include "utils.h"
+#include "globals.h"
+#include "Console.h"
 
 
 Console::Console(const string name, const string header, const string prompt)
@@ -13,8 +14,8 @@ void Console::takeInput(string& buffer) {
 }
 
 
-void Console::show() {	
-	system("CLS");
+void Console::onAttach() {	
+	system("cls");
 	cout << this->content;
 }
 
@@ -25,7 +26,6 @@ void Console::print(const string str) {
 }
 
 
-void Console::clear() {
-	this->content = this->header;
-	show();
+void Console::warnInvalidCommand(string command) {
+	print(command + " command does not exist.\n");
 }
